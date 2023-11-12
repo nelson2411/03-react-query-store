@@ -6,23 +6,13 @@ interface Options {
 }
 
 export const useProducts = ({ filterKey }: Options) => {
-  const {
-    isLoading,
-    isError,
-    data: products,
-    isFetching,
-  } = useQuery(
-    ["products", { filterKey }],
-    () => productActions.getProducts({ filterKey }),
-    {
-      staleTime: 1000 * 60 * 60, // 5 minutos
-    }
-  )
+  const { data: products, isLoading } = useQuery({
+    queryKey: ["products", { filterKey }], // { filterKey } is the same as { filterKey: filterKey
+    queryFn: () => productActions.getProducts({ filterKey }),
+  })
 
   return {
-    isLoading,
-    isError,
     products,
-    isFetching,
+    isLoading,
   }
 }

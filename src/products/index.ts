@@ -17,5 +17,6 @@ export { MensPage } from "./pages/MensPage"
 export { NewProduct } from "./pages/NewProduct"
 export { WomensPage } from "./pages/WomensPage"
 export { ProductById } from "./pages/ProductById"
+export { ElectronicsPage } from "./pages/ElectronicsPage"
 
 export * as productActions from "./services/actions"
